@@ -96,9 +96,9 @@ codeunit 50112 "Shpfy Order External Doc. No"
 {
 
     [EventSubscriber(ObjectType::Codeunit, Codeunit::"Shpfy Order Events", 'OnAfterCreateSalesHeader', '', false, false)]
-    procedure OnAfterCreateSalesHeader(ShopifyHeader: Record "Shpfy Order Header"; var SalesHeader: Record "Sales Header")
+    procedure OnAfterCreateSalesHeader(OrderHeader: Record "Shpfy Order Header"; var SalesHeader: Record "Sales Header")
     begin
-        SalesHeader."External Document No." := ShopifyHeader."Shopify Order No.";
+        SalesHeader."External Document No." := OrderHeader."Shopify Order No.";
         SalesHeader.Modify();
     end;
 }
